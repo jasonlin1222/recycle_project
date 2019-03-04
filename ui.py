@@ -14,16 +14,16 @@ def start():
 	print("this is recycle system terminal\n", "1. create user\n 2.userdata\n 3. start system \n 4. end system \n")
 	choice = int(input("Please select your input:"))
 
-	switch(choice):
-		case 1:
-			coloru = str(input("color"))#color sensor
-			exec(coloru + '= usercolor()')
-			exec(coloru + ".username = str(input('enter your name:')")
-			exec(coloru + ".password = str(input('enter your password:')"")
-		case 2:
-			userc = str(input("color"))#color sense card
-			print("amount of currency", exec(userc + ".money"), "\n", "trash amount", exec(userc + ".trash"), "\n","recycle amount" ,exec(userc + ".recycle"))
-		case 3:
-			#p.startsys()
-		case 4:
-			#p.endsys()
+	if choice is 1:
+		coloru = str(input("color"))#color sensor
+		exec(coloru + '= usercolor()')
+		exec(coloru + ".username = str(input('enter your name:')")
+		exec(coloru + ".password = str(input('enter your password:')"")
+	elif choice is 2:
+		userc = str(input("color"))#color sense card
+		print("amount of currency", exec(userc + ".money"), "\n", "trash amount", exec(userc + ".trash"), "\n","recycle amount" ,exec(userc + ".recycle"))
+	elif choice is 3:
+		pass
+		#p.startsys()
+	elif choice is 4:
+		#p.endsys()
