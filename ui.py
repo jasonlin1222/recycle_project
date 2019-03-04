@@ -18,7 +18,7 @@ def start():
 		coloru = str(input("color"))#color sensor
 		exec(coloru + '= usercolor()')
 		exec(coloru + ".username = str(input('enter your name:')")
-		exec(coloru + ".password = str(input('enter your password:')"")
+		exec(coloru + ".password = str(input('enter your password:')")
 	elif choice is 2:
 		userc = str(input("color"))#color sense card
 		print("amount of currency", exec(userc + ".money"), "\n", "trash amount", exec(userc + ".trash"), "\n","recycle amount" ,exec(userc + ".recycle"))
@@ -26,4 +26,5 @@ def start():
 		pass
 		#p.startsys()
 	elif choice is 4:
+		pass
 		#p.endsys()
