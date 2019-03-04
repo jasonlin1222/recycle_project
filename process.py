@@ -6,6 +6,6 @@ import data as dt
 # startsys():
 #     pass
 
-endsys():
-    with open("userdata.txt", "w+") as file:
-        pk.dump()
+# endsys():
+#     with open("userdata.txt", "w+") as file:
+#         pk.dump()
