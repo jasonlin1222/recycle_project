@@ -24,7 +24,7 @@ def start():
 			userc = str(input("color"))#color sense card
 			print("amount of currency", exec(userc + ".money"), "\n", "trash amount", exec(userc + ".trash"), "\n","recycle amount" ,exec(userc + ".recycle"))
 		case 3:
-			p.startsys()
+			#p.startsys()
 		case 4:
-			p.endsys()
+			#p.endsys()
 	}
