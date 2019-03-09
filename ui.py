@@ -20,8 +20,8 @@ class usercolor:
 		self.username = ''
 
 def start():
-	print("this is recycle system terminal\n", "1. create user\n 2.userdata\n 3. start system \n 4. end system \n")
-	choice = int(input("Please select your input:"))
+	print("this is recycle system terminal\n", "1. create user\n 2. userdata\n 3. start system \n 4. end system \n")
+	choice = int(input("Please select your input(1 ~ 4):"))
 
 	if choice is 1:
 		print("please scan your card...")
