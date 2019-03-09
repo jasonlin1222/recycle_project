@@ -12,4 +12,4 @@ while True
 		while card is unknown:
 			print("card is not detected")
 			card = colors[i.coldoor.value()]
-		i.doorm.run_to_rel_pos(speed_sp = )
+		i.doorm.run_to_rel_pos(speed_sp = , position_sp = ) #set block working
