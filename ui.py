@@ -5,10 +5,14 @@ import pickle as pk
 import os
 
 #init
-coldoor = ev3.ColorSensor('in1') assert coldoor.connected #coop port
-ts = ev3.TouchSensor('in2') assert ts.connected #coop port 
-
+doorm = ev3.MediumMotor('outC')
+inm = ev3.LargeMotor('outB')
+transm = ev3.LargeMotor('ouA')
+coldoor = ev3.ColorSensor('in2') assert coldoor.connected #coop port
+ts = ev3.TouchSensor('in3') assert ts.connected #coop port 
+colin = ev3.ColorSensor('in1') assert colin.connected
 coldoor.mode = 'COL-COLOR'
+colin.mode = 'COL-COLOR'
 colors = ('unknown black blue green yellow red white brown'.split())
 #init end
 class usercolor:
@@ -20,7 +24,7 @@ class usercolor:
 		self.username = ''
 
 def start():
-	print("this is recycle system terminal\n", "1. create user\n 2. userdata\n 3. start system \n 4. end system \n")
+	print("this is recycle system terminal\n", "1. create user\n 2. userdata\n 3. start system \n 4.save data \n")
 	choice = int(input("Please select your input(1 ~ 4):"))
 
 	if choice is 1:
@@ -49,8 +53,7 @@ def start():
 		os.system("python3 system.py")
 	elif choice is 4:
 		with open("userdata.txt", "w+") as file:
-       	for i in range(len(i.arr))
-        	pk.dump(, file) # file arr init
-	    print("exit system in 5 second.....")
-	    time.sleep(5)
-	    exit(0)
+		for i in range(len(i.arr))
+			pk.dump(, file) # file arr init
+		 print("saving system.....")
+		time.sleep(5)
