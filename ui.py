@@ -4,10 +4,13 @@ import process as p
 import pickle as pk
 import os
 
-col = ev3.ColorSensor('in1') #coop change
-col.mode = 'COL-COLOR'
-colors = ('unknown black blue green yellow red white brown'.split())
+#init
+coldoor = ev3.ColorSensor('in1') assert coldoor.connected #coop port
+ts = ev3.TouchSensor('in2') assert ts.connected #coop port 
 
+coldoor.mode = 'COL-COLOR'
+colors = ('unknown black blue green yellow red white brown'.split())
+#init end
 class usercolor:
 	def __init__(self):
 		self.password = ''
@@ -23,11 +26,11 @@ def start():
 	if choice is 1:
 		print("please scan your card...")
 		time.sleep(5)
-		coloru = colors[col.value()]
-		while colors[col.value()] is unknown:
+		coloru = colors[coldoor.value()]
+		while colors[coldoor.value()] is unknown:
 			try:
 				print("error scaning card !!!")
-				coloru = colors[col.value()]
+				coloru = colors[coldoor.value()]
 			except KeyboardInterrupt:
 				break
 		if coloru is unknown:
@@ -37,12 +40,17 @@ def start():
 			exec(coloru + ".username = str(input('enter your name:'))")
 			exec(coloru + ".password = str(input('enter your password:'))")
 	elif choice is 2:
-		userc = colors[col.value()]
+		userc = colors[coldoor.value()]
 		try:
 			print("amount of currency", exec(userc + ".money"), "\n", "trash amount", exec(userc + ".trash"), "\n","recycle amount" ,exec(userc + ".recycle"))
 		except NameError:
 			print("user does not exist !!!")
 	elif choice is 3:
-		p.startsys()
+		os.system("python3 system.py")
 	elif choice is 4:
-		p.endsys()
+		with open("userdata.txt", "w+") as file:
+       	for i in range(len(i.arr))
+        	pk.dump(, file) # file arr init
+	    print("exit system in 5 second.....")
+	    time.sleep(5)
+	    exit(0)
