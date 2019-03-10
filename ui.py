@@ -47,7 +47,7 @@ def start():
 				coloru = colors[coldoor.value()]
 			except KeyboardInterrupt:
 				break
-		if coloru is not in user:
+		if coloru not in user:
 			user[coloru] = usercolor()
 			user[coloru].username = input('enter your name')
 			user[coloru].password = input('enter your password:')
