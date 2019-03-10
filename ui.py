@@ -3,17 +3,26 @@ import time
 import process as p
 import pickle as pk
 import os
+import subprocess
 
 #init
 doorm = ev3.MediumMotor('outC')
+assert doorm.connected
 inm = ev3.LargeMotor('outB')
+assert inm.connected
 transm = ev3.LargeMotor('ouA')
-coldoor = ev3.ColorSensor('in2') assert coldoor.connected #coop port
-ts = ev3.TouchSensor('in3') assert ts.connected #coop port 
-colin = ev3.ColorSensor('in1') assert colin.connected
+assert transm.connected
+coldoor = ev3.ColorSensor('in2') #coop port
+assert coldoor.connected 
+ts = ev3.TouchSensor('in3') #coop port 
+assert ts.connected 
+colin = ev3.ColorSensor('in1')
+assert colin.connected
 coldoor.mode = 'COL-COLOR'
 colin.mode = 'COL-COLOR'
 colors = ('unknown black blue green yellow red white brown'.split())
+colu = list()
+user = dict()
 #init end
 class usercolor:
 	def __init__(self):
@@ -30,6 +39,7 @@ def start():
 	if choice is 1:
 		print("please scan your card...")
 		time.sleep(5)
+
 		coloru = colors[coldoor.value()]
 		while colors[coldoor.value()] is unknown:
 			try:
@@ -37,23 +47,25 @@ def start():
 				coloru = colors[coldoor.value()]
 			except KeyboardInterrupt:
 				break
-		if coloru is unknown:
-			break
+		if coloru is not in user:
+			user[coloru] = usercolor()
+			user[coloru].username = input('enter your name')
+			user[coloru].password = input('enter your password:')
 		else:
-			exec(coloru + '= usercolor()')
-			exec(coloru + ".username = str(input('enter your name:'))")
-			exec(coloru + ".password = str(input('enter your password:'))")
+			print("user already exist")
+		# exec(coloru + '= usercolor()')
+		# exec(coloru + ".username = str(input('enter your name:'))")
+		# exec(coloru + ".password = str(input('enter your password:'))")
 	elif choice is 2:
 		userc = colors[coldoor.value()]
 		try:
-			print("amount of currency", exec(userc + ".money"), "\n", "trash amount", exec(userc + ".trash"), "\n","recycle amount" ,exec(userc + ".recycle"))
+			print("amount of currency", user[userc].money , "\n", "trash amount", user[userc].trash, "\n","recycle amount" ,user[userc].recycle)
 		except NameError:
 			print("user does not exist !!!")
 	elif choice is 3:
-		os.system("python3 system.py")
+		subprocess.run("python3 system.py", shell = True)
 	elif choice is 4:
 		with open("userdata.txt", "w+") as file:
-		for i in range(len(i.arr))
-			pk.dump(, file) # file arr init
-		 print("saving system.....")
-		time.sleep(5)
+			pk.dump(user, file) # file arr init
+			print("saving system.....")
+			time.sleep(5)
