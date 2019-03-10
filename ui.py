@@ -1,25 +1,24 @@
 import ev3dev.ev3 as ev3
 import time
-import process as p
 import pickle as pk
 import os
 import subprocess
 
 #init
-doorm = ev3.MediumMotor('outC')
-assert doorm.connected
-inm = ev3.LargeMotor('outB')
-assert inm.connected
-transm = ev3.LargeMotor('ouA')
-assert transm.connected
+#doorm = ev3.MediumMotor('outC')
+#assert doorm.connected
+#inm = ev3.LargeMotor('outB')
+#assert inm.connected
+#transm = ev3.LargeMotor('ouA')
+#assert transm.connected
 coldoor = ev3.ColorSensor('in2') #coop port
 assert coldoor.connected 
-ts = ev3.TouchSensor('in3') #coop port 
-assert ts.connected 
-colin = ev3.ColorSensor('in1')
-assert colin.connected
+#ts = ev3.TouchSensor('in3') #coop port 
+#assert ts.connected 
+#colin = ev3.ColorSensor('in1')
+#assert colin.connected
 coldoor.mode = 'COL-COLOR'
-colin.mode = 'COL-COLOR'
+#colin.mode = 'COL-COLOR'
 colors = ('unknown black blue green yellow red white brown'.split())
 colu = list()
 user = dict()
@@ -39,18 +38,20 @@ def start():
 	if choice is 1:
 		print("please scan your card...")
 		time.sleep(5)
-
 		coloru = colors[coldoor.value()]
-		while colors[coldoor.value()] is unknown:
+		while coloru == "unknown":
 			try:
-				print("error scaning card !!!")
+				print("error scaning card !!!", end = "\r")
+				time.sleep(5)
+				print("                      ", end = "\r")
 				coloru = colors[coldoor.value()]
 			except KeyboardInterrupt:
 				break
-		if coloru not in user:
+		if coloru not in  user:
 			user[coloru] = usercolor()
-			user[coloru].username = input('enter your name')
-			user[coloru].password = input('enter your password:')
+			user[coloru].username = input('enter your name: ')
+			user[coloru].password = input('enter your password: ')
+			while user[coloru].username == '':
 		else:
 			print("user already exist")
 		# exec(coloru + '= usercolor()')
@@ -58,14 +59,23 @@ def start():
 		# exec(coloru + ".password = str(input('enter your password:'))")
 	elif choice is 2:
 		userc = colors[coldoor.value()]
+		while userc == "unknown":
+			try:
+				print("error scaning card !!!", end = "\r")
+				time.sleep(5)
+				print("                      ", end = "\r")
+				userc = colors[coldoor.value()]
+			except KeyboardInterrupt:
+				break
 		try:
 			print("amount of currency", user[userc].money , "\n", "trash amount", user[userc].trash, "\n","recycle amount" ,user[userc].recycle)
-		except NameError:
+		except KeyError:
 			print("user does not exist !!!")
+		time.sleep(5) 
 	elif choice is 3:
 		subprocess.run("python3 system.py", shell = True)
 	elif choice is 4:
-		with open("userdata.txt", "w+") as file:
+		with open("userdata.txt", "wb+") as file:
 			pk.dump(user, file) # file arr init
 			print("saving system.....")
 			time.sleep(5)
