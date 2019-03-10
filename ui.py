@@ -36,8 +36,9 @@ def start():
 	choice = int(input("Please select your input(1 ~ 4):"))
 
 	if choice is 1:
-		print("please scan your card...")
-		time.sleep(5)
+		for i in range(1,6):
+			print("please scan your card", '.' * i, ending = "\r")
+			time.sleep(1)
 		coloru = colors[coldoor.value()]
 		while coloru == "unknown":
 			try:
@@ -47,11 +48,13 @@ def start():
 				coloru = colors[coldoor.value()]
 			except KeyboardInterrupt:
 				break
-		if coloru not in  user:
+		if coloru not in user:
 			user[coloru] = usercolor()
-			user[coloru].username = input('enter your name: ')
-			user[coloru].password = input('enter your password: ')
-			while user[coloru].username == '':
+			while True:
+				user[coloru].username = input('enter your name: ')
+				user[coloru].password = input('enter your password: ')
+				if re.match("[a-zA-Z0-9]{n, m}", user[coloru.username]):
+					print("Yeah")
 		else:
 			print("user already exist")
 		# exec(coloru + '= usercolor()')
@@ -77,5 +80,6 @@ def start():
 	elif choice is 4:
 		with open("userdata.txt", "wb+") as file:
 			pk.dump(user, file) # file arr init
-			print("saving system.....")
-			time.sleep(5)
+			for i in range(1,6):				
+				print("saving system", '.' * i, ending = "\r")
+				time.sleep(1)
