@@ -6,7 +6,7 @@ colors = ('unknown black blue green yellow red white brown'.split())
 while True
 	if i.ts.is_pressed:
 		trash = True
-		print("trash in")
+		print("processing......")
 		print("insert your card and hold still.....")
 		time.sleep(5)
 		card = colors[i.coldoor.value()]

@@ -5,20 +5,20 @@ import os
 import subprocess
 
 #init
-#doorm = ev3.MediumMotor('outC')
-#assert doorm.connected
-#inm = ev3.LargeMotor('outB')
-#assert inm.connected
-#transm = ev3.LargeMotor('ouA')
-#assert transm.connected
+doorm = ev3.MediumMotor('outC')
+assert doorm.connected
+inm = ev3.LargeMotor('outB')
+assert inm.connected
+transm = ev3.LargeMotor('ouA')
+assert transm.connected
 coldoor = ev3.ColorSensor('in2') #coop port
 assert coldoor.connected 
-#ts = ev3.TouchSensor('in3') #coop port 
-#assert ts.connected 
-#colin = ev3.ColorSensor('in1')
-#assert colin.connected
+ts = ev3.TouchSensor('in3') #coop port 
+assert ts.connected 
+colin = ev3.ColorSensor('in1')
+assert colin.connected
 coldoor.mode = 'COL-COLOR'
-#colin.mode = 'COL-COLOR'
+colin.mode = 'COL-COLOR'
 colors = ('unknown black blue green yellow red white brown'.split())
 colu = list()
 user = dict()
@@ -54,12 +54,13 @@ def start():
 				user[coloru].username = input('enter your name: ')
 				user[coloru].password = input('enter your password: ')
 				if re.match("[a-zA-Z0-9]{n, m}", user[coloru.username]):
-					print("Yeah")
+					break
 		else:
 			print("user already exist")
 		# exec(coloru + '= usercolor()')
 		# exec(coloru + ".username = str(input('enter your name:'))")
 		# exec(coloru + ".password = str(input('enter your password:'))")
+							# exec use previous
 	elif choice is 2:
 		userc = colors[coldoor.value()]
 		while userc == "unknown":
