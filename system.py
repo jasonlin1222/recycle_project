@@ -16,3 +16,5 @@ while True
 		i.doorm.run_to_rel_pos(speed_sp = 100, position_sp = 90) #opmitize result 
 		while colors[i.colin.value()] is unknown:
 			print("waiting for trash...")
+			
+	
