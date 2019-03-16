@@ -79,6 +79,6 @@ def start():
 		with open("userdata.txt", "wb+") as file:
 			pk.dump(user, file) # file arr init
 			for i in range(1,6):
-				print("saving system", '.' * i, ending = "\r")
+				print("saving system", '.' * i, end = "\r")
 				time.sleep(1)
 		exit(0)
