@@ -2,7 +2,6 @@ import ev3dev.ev3 as ev3
 import time
 import pickle as pk
 import os
-import subprocess
 import re
 
 #init
@@ -76,7 +75,7 @@ def start():
 			print("user does not exist !!!")
 		time.sleep(5)
 	elif choice is 3:
-		subprocess.run("python3 system.py", shell = True)
+		os.system("python3 system.py")
 	elif choice is 4:
 		with open("userdata.txt", "wb+") as file:
 			pk.dump(user, file) # file arr init
