@@ -9,7 +9,7 @@ doorm = ev3.MediumMotor('outC')
 assert doorm.connected
 inm = ev3.LargeMotor('outB')
 assert inm.connected
-transm = ev3.LargeMotor('ouA')
+transm = ev3.LargeMotor('outA')
 assert transm.connected
 coldoor = ev3.ColorSensor('in2') #coop port
 assert coldoor.connected 
@@ -37,7 +37,7 @@ def start():
 
 	if choice is 1:
 		for i in range(1,6):
-			print("please scan your card", '.' * i, ending = "\r")
+			print("please scan your card", '.' * i, end = "\r")
 			time.sleep(1)
 		coloru = colors[coldoor.value()]
 		while coloru == "unknown":
