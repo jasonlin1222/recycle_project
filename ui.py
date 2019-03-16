@@ -3,6 +3,7 @@ import time
 import pickle as pk
 import os
 import subprocess
+import re
 
 #init
 doorm = ev3.MediumMotor('outC')
@@ -49,11 +50,8 @@ def start():
 				break
 		if coloru not in user:
 			user[coloru] = usercolor()
-			while True:
-				user[coloru].username = input('enter your name: ')
-				user[coloru].password = input('enter your password: ')
-				if re.match("[a-zA-Z0-9]{n, m}", user[coloru.username]):
-					break
+			user[coloru].username = input('enter your name: ')
+			user[coloru].password = input('enter your password: ')
 		else:
 			print("user already exist")
 		# exec(coloru + '= usercolor()')
