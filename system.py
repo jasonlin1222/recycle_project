@@ -3,7 +3,7 @@ import time
 import ui as i
 
 colors = ('unknown black blue green yellow red white brown'.split())
-while True
+while True:
 	if i.ts.is_pressed:
 		trash = True
 		print("processing......")
@@ -13,11 +13,9 @@ while True
 		while card is "unknown":
 			print("card is not detected")
 			card = colors[i.coldoor.value()]
-		i.doorm.run_to_rel_pos(speed_sp = 100, position_sp = 90) #opmitize result
+		i.doorm.run_to_rel_pos(speed_sp = 100, position_sp = 180) #opmitize result
 		while colors[i.colin.value()] is "unknown":
 			print("waiting for trash...")
-		while colors[i.colin.value()] is not "red" or "blue":
-			print("error")
 		if colors[i.colin.value()] is "red":
 			i.user[card].trash += 1
 		elif colors[i.colin.value()] is "blue":

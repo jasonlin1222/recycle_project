@@ -31,8 +31,6 @@ class usercolor:
 		self.username = ''
 
 def start():
-	with open("userdata.txt", "wb+") as file:
-		pk.load(user,file)
 	print("this is recycle system terminal\n", "1. create user\n 2. userdata\n 3. start system \n 4.save data \n")
 	choice = int(input("Please select your input(1 ~ 4):"))
 
