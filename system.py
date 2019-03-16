@@ -10,13 +10,15 @@ while True:
 		print("insert your card and hold still.....")
 		time.sleep(5)
 		card = colors[i.coldoor.value()]
-		while card is "unknown":
+		while card == "unknown":
 			print("card is not detected")
 			card = colors[i.coldoor.value()]
 		i.doorm.run_to_rel_pos(speed_sp = 100, position_sp = 180) #opmitize result
-		while colors[i.colin.value()] is "unknown":
+		while colors[i.colin.value()] == "unknown":
 			print("waiting for trash...")
-		if colors[i.colin.value()] is "red":
+		if colors[i.colin.value()] == "red":
 			i.user[card].trash += 1
-		elif colors[i.colin.value()] is "blue":
+                        print("hello")
+		elif colors[i.colin.value()] == "blue":
 			i.user[card].recycle += 1
+                        print("hello")
