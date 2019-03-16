@@ -3,6 +3,7 @@ import time
 import pickle as pk
 import os
 import subprocess
+import re
 
 #init
 doorm = ev3.MediumMotor('outC')
