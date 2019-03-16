@@ -12,15 +12,14 @@ assert inm.connected
 transm = ev3.LargeMotor('outA')
 assert transm.connected
 coldoor = ev3.ColorSensor('in2') #coop port
-assert coldoor.connected 
-ts = ev3.TouchSensor('in3') #coop port 
-assert ts.connected 
+assert coldoor.connected
+ts = ev3.TouchSensor('in3') #coop port
+assert ts.connected
 colin = ev3.ColorSensor('in1')
 assert colin.connected
 coldoor.mode = 'COL-COLOR'
 colin.mode = 'COL-COLOR'
 colors = ('unknown black blue green yellow red white brown'.split())
-colu = list()
 user = dict()
 #init end
 class usercolor:
@@ -75,12 +74,13 @@ def start():
 			print("amount of currency", user[userc].money , "\n", "trash amount", user[userc].trash, "\n","recycle amount" ,user[userc].recycle)
 		except KeyError:
 			print("user does not exist !!!")
-		time.sleep(5) 
+		time.sleep(5)
 	elif choice is 3:
 		subprocess.run("python3 system.py", shell = True)
 	elif choice is 4:
 		with open("userdata.txt", "wb+") as file:
 			pk.dump(user, file) # file arr init
-			for i in range(1,6):				
+			for i in range(1,6):
 				print("saving system", '.' * i, ending = "\r")
 				time.sleep(1)
+		exit(0)
