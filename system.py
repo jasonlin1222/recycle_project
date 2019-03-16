@@ -18,7 +18,5 @@ while True:
 			print("waiting for trash...")
 		if colors[i.colin.value()] == "red":
 			i.user[card].trash += 1
-                        print("hello")
 		elif colors[i.colin.value()] == "blue":
 			i.user[card].recycle += 1
-                        print("hello")
