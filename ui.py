@@ -23,12 +23,12 @@ colors = ('unknown black blue green yellow red white brown'.split())
 user = dict()
 #init end
 class usercolor:
-	def __init__(self):
-		self.password = ''
-		self.money = 0
-		self.trash = 0
-		self.recycle = 0
-		self.username = ''
+def __init__(self):
+	self.password = ''
+	self.money = 0
+	self.trash = 0
+	self.recycle = 0
+	self.username = ''
 
 def start():
 	if os.path.isfile("./userdata.txt"):
@@ -59,10 +59,17 @@ def start():
 			while True:
 				user[coloru].username = input('enter your name: ')
 				user[coloru].password = input('enter your password: ')
+<<<<<<< b82600749fd85f0b927600096213ab664a607b27
 	                        pattern = re.compile("^[0-9a-zA-Z]{4,12}$")
 	                        if re.match(pattern, user[coloru].username):
 	                            print("Username valid")
 								break
+=======
+						pattern = re.compile("^[0-9a-zA-Z]{4,12}$")
+						if re.match(pattern, user[coloru].username):
+							print("Username valid")
+							break
+>>>>>>> upload
 		else:
 			print("user already exist")
 		# exec(coloru + '= usercolor()')
