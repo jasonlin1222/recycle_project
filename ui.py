@@ -38,6 +38,7 @@ def start():
 		for i in range(1,6):
 			print("please scan your card", '.' * i, end = "\r")
 			time.sleep(1)
+			print("                     ", end = "\r")
 		coloru = colors[coldoor.value()]
 		while coloru == "unknown":
 			try:
@@ -48,9 +49,13 @@ def start():
 			except KeyboardInterrupt:
 				break
 		if coloru not in user:
-			user[coloru] = usercolor()
+			user[coloru] = usercolor() 
+			print("                     ")
 			user[coloru].username = input('enter your name: ')
 			user[coloru].password = input('enter your password: ')
+                        pattern = re.compile(r"^[0-9a-zA-Z]$")
+                        if re.match(pattern, user[coloru].username):
+                            print("Username valid")
 		else:
 			print("user already exist")
 		# exec(coloru + '= usercolor()')
