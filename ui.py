@@ -31,6 +31,11 @@ class usercolor:
 		self.username = ''
 
 def start():
+	if os.path.isfile("./userdata.txt"):
+		with open("userdata.txt", "wb+") as file:
+			pk.load(file)
+	else:
+		open("userdata.txt", "wb+")
 	print("this is recycle system terminal\n", "1. create user\n 2. userdata\n 3. start system \n 4.save data \n")
 	choice = int(input("Please select your input(1 ~ 4):"))
 
@@ -49,13 +54,15 @@ def start():
 			except KeyboardInterrupt:
 				break
 		if coloru not in user:
-			user[coloru] = usercolor() 
+			user[coloru] = usercolor()
 			print("                     ")
-			user[coloru].username = input('enter your name: ')
-			user[coloru].password = input('enter your password: ')
-                        pattern = re.compile(r"^[0-9a-zA-Z]$")
-                        if re.match(pattern, user[coloru].username):
-                            print("Username valid")
+			while True:
+				user[coloru].username = input('enter your name: ')
+				user[coloru].password = input('enter your password: ')
+	                        pattern = re.compile(r"^[0-9a-zA-Z]$")
+	                        if re.match(pattern, user[coloru].username):
+	                            print("Username valid")
+								break
 		else:
 			print("user already exist")
 		# exec(coloru + '= usercolor()')
