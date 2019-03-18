@@ -10,3 +10,4 @@ task:
     - maybe using pygame and external display
 4. multitasking
 	- mutitasking error and saving information fixing
+fix pickle load function
