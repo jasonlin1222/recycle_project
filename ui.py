@@ -59,17 +59,10 @@ def start():
 			while True:
 				user[coloru].username = input('enter your name: ')
 				user[coloru].password = input('enter your password: ')
-<<<<<<< b82600749fd85f0b927600096213ab664a607b27
-	                        pattern = re.compile("^[0-9a-zA-Z]{4,12}$")
-	                        if re.match(pattern, user[coloru].username):
-	                            print("Username valid")
-								break
-=======
-						pattern = re.compile("^[0-9a-zA-Z]{4,12}$")
-						if re.match(pattern, user[coloru].username):
-							print("Username valid")
-							break
->>>>>>> upload
+					pattern = re.compile("^[0-9a-zA-Z]{4,12}$")
+					if re.match(pattern, user[coloru].username):
+						print("Username valid")
+						break
 		else:
 			print("user already exist")
 		# exec(coloru + '= usercolor()')
