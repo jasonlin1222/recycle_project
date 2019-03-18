@@ -59,7 +59,7 @@ def start():
 			while True:
 				user[coloru].username = input('enter your name: ')
 				user[coloru].password = input('enter your password: ')
-	                        pattern = re.compile(r"^[0-9a-zA-Z]$")
+	                        pattern = re.compile("^[0-9a-zA-Z]{4,12}$")
 	                        if re.match(pattern, user[coloru].username):
 	                            print("Username valid")
 								break
