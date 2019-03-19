@@ -13,10 +13,16 @@ while True:
 		while card == "unknown":
 			print("card is not detected")
 			card = colors[i.coldoor.value()]
-		i.doorm.run_to_rel_pos(speed_sp = 100, position_sp = 180) #opmitize result
+		i.doorm.run_to_rel_pos(speed_sp = 100, position_sp = 180) #optimize result
 		while colors[i.colin.value()] == "unknown":
 			print("waiting for trash...")
 		if colors[i.colin.value()] == "red":
 			i.user[card].trash += 1
 		elif colors[i.colin.value()] == "blue":
 			i.user[card].recycle += 1
+		i.inm.run_to_rel_pos(speed = 100, position_sp = 90)#optimize result
+		i.inm.run_to_rel_pos(speed = 100, position_sp = -90)#optimize result
+		i.transm.run_forever(speed_sp = 200)
+		# touch or ir sensor
+		
+

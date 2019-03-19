@@ -32,7 +32,7 @@ class usercolor:
 
 def start():
 	if os.path.isfile("./userdata.txt"):
-		with open("userdata.txt", "wb") as file:
+		with open("userdata.txt", "rb") as file:
 			user = pk.load(file)
 	else:
 		open("userdata.txt", "wb+")
