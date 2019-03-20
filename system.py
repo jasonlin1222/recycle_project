@@ -23,6 +23,9 @@ while True:
 		i.inm.run_to_rel_pos(speed = 100, position_sp = 90)#optimize result
 		i.inm.run_to_rel_pos(speed = 100, position_sp = -90)#optimize result
 		i.transm.run_forever(speed_sp = 200)
-		# touch or ir sensor
+		if #sensor sense block
+			i.transm.stop(stop_action = "coast")
+			#activate something
+			trash = False
+			exit(0)
 		
-
