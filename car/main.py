@@ -4,21 +4,25 @@ rightm = ev3.LargeMotor('outC')
 leftm = ev3.LargeMotor('outB')
 col = ev3.ColorSensor('in3')
 col.mode = 'COL-REFLECT'
-kp = 10
-offset = 45
-tp = 5
-
+sign = ev3.ColorSensor('in2')
+sign.mode = 'COL-COLOR'
+trigger = ev3.TouchSensor('in1')
+kp = 1.5
+offset = 2.5
+tp = -200
+track = True
 while True:
-    try:
-        while True:
-            error = col.value() - offset
-            turn = kp * error
-            powerB = tp - turn
-            powerC = tp + turn
-            rightm.run_forever(speed_sp = powerC)
-            leftm.run_forever(speed_sp = powerB)
-    except KeyboardInterrupt:
-        leftm.stop()
-        rightm.stop()
-        exit(0)
+	try:
+		while track:
+			error = col.value() - offset
+			turn = kp * error
+			powerC = tp - turn
+			powerB = tp + turn
+			if sign.value() is 3:
+				rightm.run_forever(speed_sp = powerB)
+				leftm.run_forever(speed_sp = powerC)
+	except KeyboardInterrupt:
+		leftm.stop()
+		rightm.stop()
+		exit(0)
 		
