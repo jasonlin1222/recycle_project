@@ -5,7 +5,7 @@ leftm = ev3.LargeMotor('outB')
 col = ev3.ColorSensor('in3')
 col.mode = 'COL-REFLECT'
 trigger = ev3.TouchSensor('in2')
-kp = 1
+kp = 2
 offset = 31
 tp = -100
 track = True
@@ -18,6 +18,8 @@ while True:
 			powerB = tp + turn
 			rightm.run_forever(speed_sp = powerB)
 			leftm.run_forever(speed_sp = powerC)
+		rightm.stop()
+		leftm.stop()
 	except KeyboardInterrupt:
 		leftm.stop()
 		rightm.stop()
